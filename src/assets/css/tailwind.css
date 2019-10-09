@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-btn {
+  @apply w-fc;
+  @apply h-8;
+}
+
+.menu-btn .btn {
+  height: 3px;
+  @apply w-6;
+  @apply relative;
+  @apply text-white;
+  @apply bg-current;
+  @apply rounded-full;
+
+  transition: transform 200ms ease-in-out;
+}
+
+.menu-btn:focus {
+  @apply outline-none;
+}
+
+.menu-btn:hover .btn,
+.menu-btn:focus .btn {
+  @apply text-gray-400;
+}
+
+.menu-btn .btn::before,
+.menu-btn .btn::after {
+  @apply w-full;
+  @apply h-full;
+  @apply top-0;
+  @apply left-0;
+  @apply absolute;
+
+  @apply bg-current;
+  @apply rounded;
+  content: '';
+
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.menu-btn .btn::before {
+  transform: translateY(-0.5rem);
+}
+
+.menu-btn .btn::after {
+  transform: translateY(0.5rem);
+}
+
+.active-link {
+  @apply text-green-500;
+  @apply border-b;
+  @apply border-green-500;
+}
+
+.flex-center {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+}

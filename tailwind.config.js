@@ -14,6 +14,9 @@ module.exports = {
       backgroundColor: () => ({
         current: 'currentColor',
       }),
+      fontFamily: {
+        default: ['Raleway', 'sans-serif'],
+      },
     },
   },
   variants: {},

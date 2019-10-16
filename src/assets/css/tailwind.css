@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply font-default;
+}
+
+/* ---- MENU BUTTON ---- */
+
 .menu-btn {
   @apply w-fc;
   @apply h-8;
@@ -50,14 +56,105 @@
   transform: translateY(0.5rem);
 }
 
+/* ---- CUSTOMIZE BTN ---- */
+
+.labels-btn:focus {
+  @apply outline-none;
+}
+
+.labels-btn:focus svg,
+.labels-btn:hover svg {
+  @apply text-gray-600;
+}
+
+/* ---- DEFAULT BUTTON ---- */
+
+.btn-def {
+  @apply h-10;
+  @apply px-4;
+  @apply rounded;
+  @apply font-semibold;
+}
+
+/* ---- NAVIGATION LINK ---- */
+
 .active-link {
   @apply text-green-500;
   @apply border-b;
   @apply border-green-500;
 }
 
+/* ---- INPUT ---- */
+
+.input {
+  @apply w-full;
+  @apply h-10;
+  @apply relative;
+}
+
+.input input {
+  @apply w-full;
+  @apply h-10;
+  @apply px-6;
+
+  @apply bg-gray-800;
+  @apply text-gray-300;
+  @apply rounded;
+}
+
+.input input:focus + label,
+.active-input {
+  @apply text-sm;
+  transform: translate(-1.3rem, -190%) !important;
+}
+
+.input label {
+  @apply absolute;
+  top: 50%;
+  left: 1.5rem;
+  transform: translate(0, -50%);
+
+  @apply text-gray-500;
+  @apply pointer-events-none;
+
+  transition: all 200ms ease-in-out;
+}
+
+/* ---- HELPERS ---- */
+
+.wrapper {
+  @apply p-8;
+}
+
+.h-secondary {
+  @apply text-lg;
+  @apply text-gray-300;
+  @apply font-semibold;
+}
+
+.h-third {
+  @apply text-gray-500;
+  @apply font-semibold;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .flex-center {
   @apply flex;
   @apply items-center;
   @apply justify-center;
+}
+
+.flex-center-between {
+  @apply flex;
+  @apply items-center;
+  @apply justify-between;
+}
+
+.center-absolute {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }

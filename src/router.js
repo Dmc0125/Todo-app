@@ -5,7 +5,6 @@ import Todos from './views/Todos.vue';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -16,7 +15,16 @@ export default new Router({
     {
       path: '/create-todo',
       name: 'createTodo',
-      component: () => import('./views/Todos.vue'),
+      component: () => import('./views/CreateTodo.vue'),
+    },
+    {
+      path: '/create-labels',
+      name: 'createLabels',
+      component: () => import('./views/CreateLabels.vue'),
+    },
+    {
+      path: '*',
+      redirect: '/',
     },
   ],
 });

@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <main class="w-full min-h-screen bg-gray-700">
+  <main class="w-full min-h-screen bg-gray-700 relative">
     <AppHeader />
 
     <router-view/>
@@ -21,5 +21,9 @@ export default {
 <style>
 * {
   box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
 }
 </style>

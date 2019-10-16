@@ -14,6 +14,11 @@ export default {
           href: '/create-todo',
           isActive: false,
         },
+        {
+          to: 'Create labels',
+          href: '/create-labels',
+          isActive: false,
+        },
       ],
     };
   },
@@ -34,10 +39,10 @@ export default {
 </script>
 
 <template>
-  <header class="w-full bg-gray-900" :class="[ isNavShown ? 'h-28' : 'h-16' ]">
+  <header class="w-full bg-gray-900 shadow-md" :class="[ isNavShown ? 'h-28' : 'h-16' ]">
     <section class="w-full h-16 px-4 flex items-center justify-between">
       <div class="w-fc h-16 flex items-center">
-        <h1 class="text-2xl text-white font-medium">Todo app</h1>
+        <h1 class="text-2xl text-white font-semibold">Todo app</h1>
       </div>
 
       <button class="menu-btn" @click="isNavShown = !isNavShown">
@@ -51,12 +56,12 @@ export default {
     <nav v-show="isNavShown" class="w-full h-12 flex items-center">
       <router-link
         v-for="{ to, href, isActive } in links"
-        class="flex-1 focus:outline-none focus:bg-gray-800 hover:bg-gray-800"
+        class="w-2/5 flex-shrink-0 focus:outline-none focus:bg-gray-800 hover:bg-gray-800"
         :key="href"
         :to="href"
       >
         <div
-          class="h-12 flex-center text-lg text-gray-500 font-regular"
+          class="h-12 flex-center text-lg text-gray-500 font-medium"
           :class="{ 'active-link': isActive }"
         >{{ to }}</div>
       </router-link>
@@ -83,7 +88,15 @@ header {
 }
 
 nav {
+  overflow-x: auto;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+
   animation: 400ms ease-in-out 1 slideIn;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes slideIn {

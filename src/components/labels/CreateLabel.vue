@@ -19,11 +19,11 @@ export default {
   },
   methods: {
     submitLabel() {
-      this.addLabel(this.customLabel);
+      this.createLabel(this.customLabel);
 
       this.customLabel = '';
     },
-    ...mapActions(['addLabel']),
+    ...mapActions(['createLabel']),
   },
 };
 </script>

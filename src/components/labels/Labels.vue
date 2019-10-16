@@ -12,11 +12,11 @@ export default {
       this.$emit('labelsettings:open', labelData);
     },
     submitLabel() {
-      this.addLabel(this.customLabel);
+      this.createLabel(this.customLabel);
 
       this.customLabel = '';
     },
-    ...mapActions(['addLabel']),
+    ...mapActions(['createLabel']),
   },
   computed: {
     ...mapGetters({

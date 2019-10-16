@@ -27,7 +27,7 @@ export default {
 <template>
   <section class="w-full mt-6">
     <header>
-      <h2 class="h-secondary">Labels</h2>
+      <h1 class="h-secondary">Labels</h1>
     </header>
 
     <ul class="w-full mt-3">
@@ -36,7 +36,6 @@ export default {
         class="mt-2"
         :key="i"
       >
-        <!-- TODO: Set label as used on current Todo on click -->
         <button
           type="button"
           :class="`

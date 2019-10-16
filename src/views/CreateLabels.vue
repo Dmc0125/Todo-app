@@ -34,7 +34,7 @@ export default {
 <template>
   <section class="w-full wrapper">
     <header>
-      <h2 class="h-secondary">All labels</h2>
+      <h1 class="h-secondary">All labels</h1>
     </header>
 
     <Labels @labelsettings:open="showModal" />

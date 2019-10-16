@@ -43,7 +43,7 @@ const labelsModule = {
     },
   },
   actions: {
-    addLabel({ commit }, labelText) {
+    createLabel({ commit }, labelText) {
       commit(labelsTypes.ADD_LABEL, labelText);
     },
     deleteLabel({ commit }, labelId) {

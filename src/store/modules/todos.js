@@ -13,7 +13,7 @@ const todosModule = {
     [todosTypes.CREATE_TODO](state, todo) {
       const newTodo = {
         ...todo,
-        isUsed: false,
+        isDone: false,
         id: uuidv4(),
       };
 

@@ -54,9 +54,3 @@ export default {
     </li>
   </ul>
 </template>
-
-<style scoped>
-.is-used {
-  border-radius: 0 0.25rem 0.25rem 0;
-}
-</style>

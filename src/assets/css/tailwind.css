@@ -6,6 +6,71 @@
   @apply font-default;
 }
 
+button:focus {
+  @apply outline-none;
+}
+
+/* ---- COLORS ---- */
+
+.h-primary-color {
+  @apply text-white;
+}
+
+.h-secondary-color {
+  @apply text-gray-300;
+}
+
+.h-third-color {
+  @apply text-gray-500;
+}
+
+.p-primary-color {
+  @apply text-gray-400;
+}
+
+.link-color {
+  @apply text-gray-500;
+}
+
+/* ---- FONTS ---- */
+
+.h-primary {
+  @apply text-white;
+  @apply font-semibold;
+  @apply text-2xl;
+}
+
+.h-secondary {
+  @apply text-lg;
+  @apply text-gray-300;
+  @apply font-semibold;
+}
+
+.h-third {
+  @apply text-gray-500;
+  @apply font-semibold;
+}
+
+.p-primary {
+  @apply text-gray-400;
+  @apply font-normal;
+  @apply text-base;
+}
+
+/* ---- NAVIGATION LINK ---- */
+
+.link {
+  @apply text-gray-500;
+  @apply text-lg;
+  @apply font-medium;
+}
+
+.active-link {
+  @apply text-green-500;
+  @apply border-b;
+  @apply border-green-500;
+}
+
 /* ---- MENU BUTTON ---- */
 
 .menu-btn {
@@ -22,10 +87,6 @@
   @apply rounded-full;
 
   transition: transform 200ms ease-in-out;
-}
-
-.menu-btn:focus {
-  @apply outline-none;
 }
 
 .menu-btn:hover .btn,
@@ -56,15 +117,25 @@
   transform: translateY(0.5rem);
 }
 
-/* ---- CUSTOMIZE BTN ---- */
+/* ---- LABELS BTN ---- */
 
-.labels-btn:focus {
-  @apply outline-none;
+.labels-btn {
+  @apply rounded;
 }
 
-.labels-btn:focus svg,
-.labels-btn:hover svg {
+.labels-btn-inner:hover svg,
+.labels-btn-inner:focus svg {
   @apply text-gray-600;
+}
+
+.labels-btn-outer:hover,
+.labels-btn-outer:focus {
+  @apply bg-gray-700;
+}
+
+.labels-btn-green:focus svg,
+.labels-btn-green:hover svg {
+  @apply text-green-500;
 }
 
 /* ---- DEFAULT BUTTON ---- */
@@ -74,14 +145,6 @@
   @apply px-4;
   @apply rounded;
   @apply font-semibold;
-}
-
-/* ---- NAVIGATION LINK ---- */
-
-.active-link {
-  @apply text-green-500;
-  @apply border-b;
-  @apply border-green-500;
 }
 
 /* ---- INPUT ---- */
@@ -126,19 +189,8 @@
   @apply p-8;
 }
 
-.h-secondary {
-  @apply text-lg;
-  @apply text-gray-300;
-  @apply font-semibold;
-}
-
-.h-third {
-  @apply text-gray-500;
-  @apply font-semibold;
-}
-
-.text-shadow {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+.wrapper-sm {
+  @apply p-4;
 }
 
 .flex-center {
@@ -151,10 +203,4 @@
   @apply flex;
   @apply items-center;
   @apply justify-between;
-}
-
-.center-absolute {
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
 }

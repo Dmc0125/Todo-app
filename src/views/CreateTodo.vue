@@ -36,6 +36,8 @@ export default {
         text: '',
         labels: [],
       };
+
+      this.$router.push({ path: '/' });
     },
     ...mapActions(['createTodo']),
   },
@@ -53,7 +55,7 @@ export default {
 
     <button
       type="submit"
-      class="h-10 mt-6 px-6 bg-gray-800 text-gray-300 font-semibold rounded hover:bg-gray-900"
+      class="btn-def w-20 mt-6 bg-gray-800 text-gray-300 hover:bg-gray-900 focus:bg-gray-900"
     >Add</button>
   </form>
 </template>

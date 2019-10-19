@@ -86,7 +86,6 @@ export default {
             text-green-600
             hover:bg-green-600
             hover:text-gray-900
-            focus:outline-none
             focus:bg-green-600
             focus:text-gray-900
           "
@@ -100,7 +99,6 @@ export default {
             text-gray-500
             hover:bg-red-500
             hover:text-gray-900
-            focus:outline-none
             focus:bg-red-500
             focus:text-gray-900
           "

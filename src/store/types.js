@@ -6,4 +6,6 @@ export const labelsTypes = {
 
 export const todosTypes = {
   CREATE_TODO: 'CREATE_TODO',
+  TOGGLE_TODO_DONE: 'TOGGLE_TODO_DONE',
+  DELETE_TODO: 'DELETE_TODO',
 };

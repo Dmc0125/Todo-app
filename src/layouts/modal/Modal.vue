@@ -21,6 +21,10 @@ export default {
       this.showModal = false;
     });
   },
+  beforeDestroy() {
+    eb.$off('modal:show');
+    eb.$off('modal:close');
+  },
 };
 </script>
 

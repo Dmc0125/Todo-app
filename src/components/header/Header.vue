@@ -42,7 +42,7 @@ export default {
   <header class="w-full bg-gray-900 shadow-md" :class="[ isNavShown ? 'h-28' : 'h-16' ]">
     <section class="w-full h-16 px-4 flex items-center justify-between">
       <div class="w-fc h-16 flex items-center">
-        <h1 class="text-2xl text-white font-semibold">Todo app</h1>
+        <h1 class="h-primary">Todo app</h1>
       </div>
 
       <button class="menu-btn" @click="isNavShown = !isNavShown">
@@ -61,7 +61,7 @@ export default {
         :to="href"
       >
         <div
-          class="h-12 flex-center text-lg text-gray-500 font-medium"
+          class="h-12 flex-center link"
           :class="{ 'active-link': isActive }"
         >{{ to }}</div>
       </router-link>

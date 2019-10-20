@@ -53,7 +53,7 @@ export default {
       </p>
 
 
-      <div class="h-8 flex-center">
+      <div class="h-8 pl-2 flex-center">
         <button
           class="w-8 h-full flex-shrink-0 labels-btn labels-btn-outer"
           @click.stop="toggleTodoDone(id)"
@@ -68,10 +68,7 @@ export default {
           <svg class="w-full fill-current text-gray-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.243 8.243a.5.5 0 0 0-.707 0L12 11.778 8.464 8.243a.5.5 0 0 0-.707.707l3.536 3.535-3.536 3.536a.5.5 0 1 0 .707.707L12 13.192l3.536 3.536a.5.5 0 1 0 .707-.707l-3.536-3.536 3.536-3.535a.5.5 0 0 0 0-.707z" /></svg>
         </button>
 
-        <button
-          v-if="labels.length"
-          class="w-8 h-full flex-shrink-0 labels-btn labels-btn-outer"
-        >
+        <button class="w-8 h-full flex-shrink-0 labels-btn labels-btn-outer">
           <svg :class="['w-full fill-current text-gray-500 show-more', { rotate: isExpanded }]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.96 9.303a.5.5 0 0 0-.707 0L11.657 13.9 7.06 9.303a.5.5 0 0 0-.708.707l4.95 4.95a.5.5 0 0 0 .707 0l4.95-4.95a.5.5 0 0 0 0-.707z" /></svg>
         </button>
       </div>
@@ -87,10 +84,9 @@ export default {
 p {
   -ms-word-break: break-all;
   word-break: break-all;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-
+  -webkit-hyphens: manual;
+  -moz-hyphens: manual;
+  -ms-hyphens: manual;
+  hyphens: manual;
 }
 </style>

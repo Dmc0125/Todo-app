@@ -26,4 +26,18 @@ export default {
 body {
   overflow: hidden;
 }
+
+.center-absolute {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
 </style>

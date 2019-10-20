@@ -19,10 +19,29 @@ const todosModule = {
 
       state.todos.push(newTodo);
     },
+    [todosTypes.TOGGLE_TODO_DONE](state, todoId) {
+      const changedIdx = state.todos.findIndex(todo => todo.id === todoId);
+
+      state.todos.splice(changedIdx, 1, {
+        ...state.todos[changedIdx],
+        isDone: !state.todos[changedIdx].isDone,
+      });
+    },
+    [todosTypes.DELETE_TODO](state, todoId) {
+      const deleted = state.todos.filter(todo => todo.id !== todoId);
+
+      state.todos = deleted;
+    },
   },
   actions: {
     createTodo({ commit }, todo) {
       commit(todosTypes.CREATE_TODO, todo);
+    },
+    toggleTodoDone({ commit }, todoId) {
+      commit(todosTypes.TOGGLE_TODO_DONE, todoId);
+    },
+    deleteTodo({ commit }, todoId) {
+      commit(todosTypes.DELETE_TODO, todoId);
     },
   },
 };

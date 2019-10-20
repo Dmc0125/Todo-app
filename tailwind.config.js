@@ -9,6 +9,7 @@ module.exports = {
         fc: 'fit-content',
       },
       minHeight: {
+        6: '1.5rem',
         16: '4rem',
       },
       backgroundColor: () => ({

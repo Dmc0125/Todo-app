@@ -44,7 +44,6 @@ export default {
             relative
             bg-${color}-500
             hover:bg-${color}-600
-            focus:outline-none
             focus:bg-${color}-600
           `"
           @click="$emit('todo:togglelabel', labels[i])"

@@ -27,7 +27,6 @@ export default {
           ${color === setColor ? 'border-2 border-white' : ''}
           bg-${color}-500
           hover:bg-${color}-600
-          focus:outline-none
           focus:bg-${color}-600
         `"
         @click="$emit('colors:set', color)"

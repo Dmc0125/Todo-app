@@ -1,8 +1,6 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
-import { isUsed } from '@/utils/helpers';
-
 import AppInput from '@/layouts/input/Input.vue';
 import CreateTodoLabels from '@/components/create_todo/CreateTodoLabels.vue';
 
@@ -20,14 +18,14 @@ export default {
     };
   },
   methods: {
-    toggleLabel(label) {
-      if (isUsed(this.newTodo.labels, label.id)) {
-        const filtered = this.newTodo.labels.filter(currentLabel => currentLabel.id !== label.id);
+    toggleLabel(labelId) {
+      if (this.newTodo.labels.includes(labelId)) {
+        const filtered = this.newTodo.labels.filter(currentLabelId => currentLabelId !== labelId);
         this.newTodo.labels = filtered;
         return;
       }
 
-      this.newTodo.labels.push(label);
+      this.newTodo.labels.push(labelId);
     },
     submitTodo() {
       this.createTodo(this.newTodo);

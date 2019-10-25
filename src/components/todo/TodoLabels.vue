@@ -8,7 +8,7 @@ export default {
     AppPlusIcon,
   },
   props: {
-    labelsIds: {
+    labels: {
       type: Array,
       required: true,
     },
@@ -19,13 +19,14 @@ export default {
   },
   methods: {
     labelsWithText() {
-      return this.labels.some(label => label.text.length > 0);
+      return this.usedLabels.some(label => label.text.length > 0);
     },
   },
   computed: {
-    ...mapGetters({
-      labels: 'getLabels',
-    }),
+    usedLabels() {
+      return this.getLabels.filter(label => this.labels.includes(label.id));
+    },
+    ...mapGetters(['getLabels']),
   },
 };
 </script>
@@ -33,7 +34,7 @@ export default {
 <template>
   <section class="flex items-center flex-wrap -mt-2 -ml-1">
     <div
-      v-for="({ id, color, text }) in labels"
+      v-for="({ id, color, text }) in usedLabels"
       :key="id"
       :class="[
         text.length ? 'w-fc px-2' : 'w-10',
@@ -47,7 +48,7 @@ export default {
     <button
       :class="[
         labelsWithText() ? 'w-6 h-6' : 'w-4 h-4',
-        'mt-2 flex-shrink-0 labels-btn labels-btn-outer'
+        'mt-2 ml-1 flex-shrink-0 labels-btn labels-btn-outer'
       ]"
       @click.stop
     >

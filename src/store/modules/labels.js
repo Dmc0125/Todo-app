@@ -46,8 +46,10 @@ const labelsModule = {
     addLabel({ commit }, labelText) {
       commit(labelsTypes.ADD_LABEL, labelText);
     },
-    deleteLabel({ commit }, labelId) {
+    deleteLabel({ commit, dispatch, state }, labelId) {
       commit(labelsTypes.DELETE_LABEL, labelId);
+
+      dispatch('deleteNonExistingLabelIds', state.labels);
     },
     modifyLabel({ commit }, modifiedLabelData) {
       commit(labelsTypes.MODIFY_LABEL, modifiedLabelData);

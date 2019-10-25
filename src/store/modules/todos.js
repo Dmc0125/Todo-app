@@ -32,6 +32,12 @@ const todosModule = {
 
       state.todos = deleted;
     },
+    [todosTypes.DELETE_NON_EXISTING_LABEL_IDS](state, filtered) {
+      state.todos = state.todos.map(todo => ({
+        ...todo,
+        labels: todo.labels.filter(label => filtered.includes(label)),
+      }));
+    },
   },
   actions: {
     createTodo({ commit }, todo) {
@@ -42,6 +48,16 @@ const todosModule = {
     },
     deleteTodo({ commit }, todoId) {
       commit(todosTypes.DELETE_TODO, todoId);
+    },
+    deleteNonExistingLabelIds({ commit, state }, labels) {
+      const unique = [
+        ...new Set(state.todos.reduce((ids, todo) => [...ids, ...todo.labels], [])),
+      ];
+
+      const filtered = unique
+        .filter(id => labels.findIndex(label => label.id === id) > -1);
+
+      commit(todosTypes.DELETE_NON_EXISTING_LABEL_IDS, filtered);
     },
   },
 };

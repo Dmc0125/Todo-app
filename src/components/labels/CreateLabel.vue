@@ -1,10 +1,13 @@
 <script>
 import { mapActions } from 'vuex';
+
 import AppInput from '@/layouts/input/Input.vue';
+import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
 
 export default {
   components: {
     AppInput,
+    AppPlusIcon,
   },
   props: {
     showHeader: {
@@ -38,7 +41,7 @@ export default {
       <AppInput :value.sync="customLabel" placeholder label="Custom label" />
 
       <button type="submit" class="w-10 h-10 flex-shrink-0 labels-btn-inner">
-        <svg class="w-full fill-current text-gray-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a.5.5 0 00-.5.5v5h-5a.5.5 0 000 1h5v5a.5.5 0 001 0v-5h5a.5.5 0 000-1h-5v-5A.5.5 0 0012 6z"/></svg>
+        <AppPlusIcon />
       </button>
     </form>
   </section>

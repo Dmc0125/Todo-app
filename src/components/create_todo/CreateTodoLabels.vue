@@ -1,8 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
 
-import { isUsed } from '@/utils/helpers';
-
 export default {
   props: {
     todo: {
@@ -14,9 +12,6 @@ export default {
     return {
       newLabel: '',
     };
-  },
-  methods: {
-    isUsed,
   },
   computed: mapGetters({
     labels: 'getLabels',
@@ -46,12 +41,12 @@ export default {
             hover:bg-${color}-600
             focus:bg-${color}-600
           `"
-          @click="$emit('todo:togglelabel', labels[i])"
+          @click="$emit('todo:togglelabel', id)"
         >
           <p class="w-full px-4 text-white text-left font-medium text-shadow">{{ text }}</p>
 
           <div
-            v-if="isUsed(todo.labels, id)"
+            v-if="todo.labels.includes(id)"
             class="w-2 h-full absolute bg-white right-0 top-0 is-used"
           ></div>
         </button>

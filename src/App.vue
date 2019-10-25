@@ -40,4 +40,23 @@ body {
 .rotate {
   transform: rotate(180deg);
 }
+
+/* ---- TRANSITIONS ---- */
+
+.fadeIn-enter-active {
+  transition: opacity 200ms ease-in-out;
+  transition-delay: 200ms;
+}
+
+.fadeIn-leave-active {
+  transition: 0;
+}
+
+.fadeIn-enter {
+  opacity: 0;
+}
+
+.fadeIn-enter-to {
+  opacity: 1;
+}
 </style>

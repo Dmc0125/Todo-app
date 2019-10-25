@@ -3,11 +3,19 @@ import { mapActions } from 'vuex';
 
 import eb from '@/event_bus/event_bus';
 
+import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
+import AppDoneIcon from '@/layouts/icons/DoneIcon.vue';
+import AppChevronIcon from '@/layouts/icons/ChevronIcon.vue';
 import TodoLabels from './TodoLabels.vue';
+import TodoSettings from './TodoSettings.vue';
 
 export default {
   components: {
+    AppPlusIcon,
+    AppDoneIcon,
+    AppChevronIcon,
     TodoLabels,
+    TodoSettings,
   },
   props: {
     text: {
@@ -44,7 +52,10 @@ export default {
 </script>
 
 <template>
-  <li class="w-full mt-4 cursor-pointer" @click="toggleTodoExpand">
+  <li
+    :class="['w-full min-h-17 mt-4 p-2 cursor-pointer rounded', { 'bg-gray-900': isExpanded }]"
+    @click="toggleTodoExpand"
+  >
     <TodoLabels :labels="labels" :todoId="id" />
 
     <div class="w-full mt-1 flex-center-between">
@@ -58,25 +69,35 @@ export default {
           class="w-8 h-full flex-shrink-0 labels-btn labels-btn-outer"
           @click.stop="toggleTodoDone(id)"
         >
-          <svg :class="['w-full fill-current text-gray-500', { 'text-green-500': isDone }]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="17.607" y="7.536" width="1" height="10" rx=".5" transform="rotate(45 17.607 7.536)"/><rect x="7" y="11.071" width="1" height="6" rx=".5" transform="rotate(-45 7 11.071)"/></svg>
+          <AppDoneIcon :isDone="isDone" />
         </button>
 
         <button
           class="w-8 h-full flex-shrink-0 labels-btn labels-btn-outer"
           @click="deleteTodo(id)"
         >
-          <svg class="w-full fill-current text-gray-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.243 8.243a.5.5 0 0 0-.707 0L12 11.778 8.464 8.243a.5.5 0 0 0-.707.707l3.536 3.535-3.536 3.536a.5.5 0 1 0 .707.707L12 13.192l3.536 3.536a.5.5 0 1 0 .707-.707l-3.536-3.536 3.536-3.535a.5.5 0 0 0 0-.707z" /></svg>
+          <AppPlusIcon rotate />
         </button>
 
         <button class="w-8 h-full flex-shrink-0 labels-btn labels-btn-outer">
-          <svg :class="['w-full fill-current text-gray-500 show-more', { rotate: isExpanded }]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.96 9.303a.5.5 0 0 0-.707 0L11.657 13.9 7.06 9.303a.5.5 0 0 0-.708.707l4.95 4.95a.5.5 0 0 0 .707 0l4.95-4.95a.5.5 0 0 0 0-.707z" /></svg>
+          <AppChevronIcon :isExpanded="isExpanded" />
         </button>
       </div>
     </div>
+
+    <transition name="fadeIn">
+      <div v-show="isExpanded">
+        <TodoSettings />
+      </div>
+    </transition>
   </li>
 </template>
 
 <style scoped>
+li {
+  transition: all 200ms ease-in-out;
+}
+
 .show-more {
   transition: all 200ms ease-in-out;
 }

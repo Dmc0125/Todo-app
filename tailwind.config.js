@@ -3,6 +3,7 @@ module.exports = {
     extend: {
       height: {
         fc: 'fit-content',
+        17: '4.25rem',
         28: '7rem',
       },
       width: {
@@ -11,6 +12,8 @@ module.exports = {
       minHeight: {
         6: '1.5rem',
         16: '4rem',
+        17: '4.25rem',
+        32: '8rem',
       },
       backgroundColor: () => ({
         current: 'currentColor',

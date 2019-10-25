@@ -4,11 +4,13 @@ import { mapGetters, mapActions } from 'vuex';
 import eb from '@/event_bus/event_bus';
 
 import AppInput from '@/layouts/input/Input.vue';
+import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
 import Colors from './Colors.vue';
 
 export default {
   components: {
     AppInput,
+    AppPlusIcon,
     Colors,
   },
   props: {
@@ -53,14 +55,14 @@ export default {
 
 <template>
   <section
-    class="w-full p-6 absolute center-absolute bg-gray-900 shadow-lg rounded customize-wrapper"
+    class="w-full p-6 absolute center-absolute bg-gray-900 shadow-lg rounded settings-wrapper"
     @click.stop
   >
     <header class="w-full flex items-center justify-between">
       <h1 class="h-secondary">Customize label</h1>
 
-      <button @click="close" class="w-6 rounded-full labels-btn">
-        <svg class="w-full fill-current text-gray-200" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M18 6a.707.707 0 00-1 0l-5 5-5-5a.707.707 0 10-1 1l5 5-5 5a.707.707 0 001 1l5-5 5 5a.707.707 0 101-1l-5-5 5-5a.707.707 0 000-1z"/></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0z"/></clipPath></defs></svg>
+      <button @click="close" class="w-8 rounded-full labels-btn-inner">
+        <AppPlusIcon rotate />
       </button>
     </header>
 
@@ -110,7 +112,7 @@ export default {
 </template>
 
 <style scoped>
-.customize-wrapper {
+.settings-wrapper {
   width: calc(100% - 3rem);
 }
 

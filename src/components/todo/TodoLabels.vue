@@ -1,7 +1,14 @@
 <script>
+import { mapGetters } from 'vuex';
+
+import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
+
 export default {
+  components: {
+    AppPlusIcon,
+  },
   props: {
-    labels: {
+    labelsIds: {
       type: Array,
       required: true,
     },
@@ -14,6 +21,11 @@ export default {
     labelsWithText() {
       return this.labels.some(label => label.text.length > 0);
     },
+  },
+  computed: {
+    ...mapGetters({
+      labels: 'getLabels',
+    }),
   },
 };
 </script>
@@ -31,5 +43,16 @@ export default {
     >
       <p class="text-gray-900 font-semibold text-sm">{{ text }}</p>
     </div>
+
+    <button
+      :class="[
+        labelsWithText() ? 'w-6 h-6' : 'w-4 h-4',
+        'mt-2 flex-shrink-0 labels-btn labels-btn-outer'
+      ]"
+      @click.stop
+    >
+    <!-- TODO: Add label function -->
+      <AppPlusIcon />
+    </button>
   </section>
 </template>

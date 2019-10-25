@@ -28,7 +28,7 @@ export default {
     <ul class="w-full mt-3">
       <li
         v-for="({ color, text, id }, i) in labels"
-        class="mt-2"
+        class="h-10 mt-2"
         :key="i"
       >
         <button

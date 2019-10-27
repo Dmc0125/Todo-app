@@ -51,7 +51,7 @@ export default {
         labelsWithText() ? 'w-6 h-6' : 'w-4 h-4',
         'mt-2 ml-1 flex-shrink-0 labels-btn labels-btn-outer'
       ]"
-      @click.stop="showModal"
+      @click.stop="showModal(todoId)"
     >
     <!-- TODO: Add label function -->
       <AppPlusIcon />

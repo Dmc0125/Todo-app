@@ -2,11 +2,13 @@
 import { mapGetters } from 'vuex';
 
 import AppModal from '@/layouts/modal/Modal.vue';
+import AddLabel from '@/components/todo/AddLabel.vue';
 import Todo from '@/components/todo/Todo.vue';
 
 export default {
   components: {
     AppModal,
+    AddLabel,
     Todo,
   },
   computed: mapGetters({
@@ -57,6 +59,8 @@ export default {
       </ul>
     </section>
 
-    <AppModal></AppModal>
+    <AppModal>
+      <AddLabel />
+    </AppModal>
   </section>
 </template>

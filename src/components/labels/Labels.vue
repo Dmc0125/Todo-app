@@ -14,20 +14,22 @@ export default {
   },
   methods: {
     openLabelSettings(labelData) {
+      if (this.modalShowState) return;
+
       this.$emit('labelsettings:open', labelData);
+      this.showModal();
     },
     submitLabel() {
       this.addLabel(this.customLabel);
 
       this.customLabel = '';
     },
-    ...mapActions(['addLabel']),
+    ...mapActions(['addLabel', 'showModal']),
   },
-  computed: {
-    ...mapGetters({
-      labels: 'getLabels',
-    }),
-  },
+  computed: mapGetters({
+    labels: 'getLabels',
+    modalShowState: 'getModalState',
+  }),
 };
 </script>
 

@@ -1,6 +1,4 @@
 <script>
-import eb from '@/event_bus/event_bus';
-
 import Labels from '@/components/labels/Labels.vue';
 import CreateLabel from '@/components/labels/CreateLabel.vue';
 import AppModal from '@/layouts/modal/Modal.vue';
@@ -22,12 +20,6 @@ export default {
       },
     };
   },
-  methods: {
-    showModal(labelData) {
-      this.labelSettings = labelData;
-      eb.$emit('modal:show', labelData);
-    },
-  },
 };
 </script>
 
@@ -37,7 +29,7 @@ export default {
       <h2 class="h-secondary">All labels</h2>
     </header>
 
-    <Labels @labelsettings:open="showModal" />
+    <Labels @labelsettings:open="labelSettings = $event" />
     <CreateLabel showHeader />
 
     <AppModal>

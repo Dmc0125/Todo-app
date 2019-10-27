@@ -10,3 +10,8 @@ export const todosTypes = {
   DELETE_TODO: 'DELETE_TODO',
   DELETE_NON_EXISTING_LABEL_IDS: 'DELETE_NON_EXISTING_LABEL_IDS',
 };
+
+export const modalTypes = {
+  SHOW_MODAL: 'SHOW_MODAL',
+  HIDE_MODAL: 'HIDE_MODAL',
+};

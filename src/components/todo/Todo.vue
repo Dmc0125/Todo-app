@@ -1,8 +1,6 @@
 <script>
 import { mapActions } from 'vuex';
 
-import eb from '@/event_bus/event_bus';
-
 import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
 import AppDoneIcon from '@/layouts/icons/DoneIcon.vue';
 import AppChevronIcon from '@/layouts/icons/ChevronIcon.vue';
@@ -43,8 +41,6 @@ export default {
   methods: {
     toggleTodoExpand() {
       this.isExpanded = !this.isExpanded;
-
-      eb.$emit(`todo-${this.id}:toggle`);
     },
     ...mapActions(['toggleTodoDone', 'deleteTodo']),
   },

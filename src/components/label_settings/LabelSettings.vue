@@ -1,8 +1,6 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
-import eb from '@/event_bus/event_bus';
-
 import AppInput from '@/layouts/input/Input.vue';
 import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
 import Colors from './Colors.vue';
@@ -36,16 +34,13 @@ export default {
   methods: {
     submitLabelHide() {
       this.modifyLabel({ id: this.id, text: this.labelText, color: this.setColor });
-      this.close();
+      this.hideModal();
     },
     deleteLabelHide() {
       this.deleteLabel(this.id);
-      this.close();
+      this.hideModal();
     },
-    close() {
-      eb.$emit('modal:close');
-    },
-    ...mapActions(['modifyLabel', 'deleteLabel']),
+    ...mapActions(['modifyLabel', 'deleteLabel', 'hideModal']),
   },
   computed: mapGetters({
     colors: 'getColors',
@@ -61,7 +56,7 @@ export default {
     <header class="w-full flex items-center justify-between">
       <h1 class="h-secondary">Customize label</h1>
 
-      <button @click="close" class="w-8 rounded-full labels-btn-inner">
+      <button @click="hideModal" class="w-8 rounded-full labels-btn-inner">
         <AppPlusIcon rotate />
       </button>
     </header>

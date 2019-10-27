@@ -1,5 +1,5 @@
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
 
@@ -21,6 +21,7 @@ export default {
     labelsWithText() {
       return this.usedLabels.some(label => label.text.length > 0);
     },
+    ...mapActions(['showModal']),
   },
   computed: {
     usedLabels() {
@@ -50,7 +51,7 @@ export default {
         labelsWithText() ? 'w-6 h-6' : 'w-4 h-4',
         'mt-2 ml-1 flex-shrink-0 labels-btn labels-btn-outer'
       ]"
-      @click.stop
+      @click.stop="showModal"
     >
     <!-- TODO: Add label function -->
       <AppPlusIcon />

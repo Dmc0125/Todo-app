@@ -41,6 +41,10 @@ body {
   transform: rotate(180deg);
 }
 
+.modal-wrapper {
+  width: calc(100% - 3rem);
+}
+
 /* ---- TRANSITIONS ---- */
 
 .fadeIn-enter-active {

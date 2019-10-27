@@ -141,7 +141,7 @@ button:focus {
 /* ---- DEFAULT BUTTON ---- */
 
 .btn-def {
-  @apply h-10;
+  @apply min-h-10;
   @apply px-4;
   @apply rounded;
   @apply font-semibold;

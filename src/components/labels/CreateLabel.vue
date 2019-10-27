@@ -9,12 +9,6 @@ export default {
     AppInput,
     AppPlusIcon,
   },
-  props: {
-    showHeader: {
-      type: Boolean,
-      default: false,
-    },
-  },
   data() {
     return {
       customLabel: '',
@@ -33,9 +27,11 @@ export default {
 
 <template>
   <section class="w-full">
-    <header v-if="showHeader" class="mt-6">
-      <h1 class="h-secondary">Create label</h1>
-    </header>
+    <slot>
+      <header class="mt-6">
+        <h1 class="h-secondary">Create label</h1>
+      </header>
+    </slot>
 
     <form @submit.prevent="submitLabel" class="w-full mt-3 flex">
       <AppInput :value.sync="customLabel" placeholder label="Custom label" />

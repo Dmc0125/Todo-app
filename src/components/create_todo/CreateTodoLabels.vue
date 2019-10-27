@@ -3,15 +3,14 @@ import { mapGetters } from 'vuex';
 
 export default {
   props: {
-    todo: {
-      type: Object,
+    todoLabels: {
+      type: Array,
       required: true,
     },
-  },
-  data() {
-    return {
-      newLabel: '',
-    };
+    showHeader: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: mapGetters({
     labels: 'getLabels',
@@ -21,14 +20,14 @@ export default {
 
 <template>
   <section class="w-full mt-6">
-    <header>
+    <header v-if="showHeader">
       <h2 class="h-secondary">Labels</h2>
     </header>
 
     <ul class="w-full mt-3">
       <li
         v-for="({ color, text, id }, i) in labels"
-        class="mt-2"
+        class="flex mt-2"
         :key="i"
       >
         <!-- TODO: Set label as used on current Todo on click -->
@@ -44,10 +43,10 @@ export default {
           `"
           @click="$emit('todo:togglelabel', id)"
         >
-          <p class="w-full px-4 text-white text-left font-medium text-shadow">{{ text }}</p>
+          <p class="w-full px-4 py-1 text-white text-left font-medium text-shadow">{{ text }}</p>
 
           <div
-            v-if="todo.labels.includes(id)"
+            v-if="todoLabels.includes(id)"
             class="w-2 h-full absolute bg-white right-0 top-0 is-used"
           ></div>
         </button>
@@ -59,5 +58,14 @@ export default {
 <style scoped>
 .is-used {
   border-radius: 0 0.25rem 0.25rem 0;
+}
+
+p {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  -webkit-hyphens: manual;
+  -moz-hyphens: manual;
+  -ms-hyphens: manual;
+  hyphens: manual;
 }
 </style>

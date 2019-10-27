@@ -50,7 +50,7 @@ export default {
 
 <template>
   <section
-    class="w-full p-6 absolute center-absolute bg-gray-900 shadow-lg rounded settings-wrapper"
+    class="w-full p-6 absolute center-absolute bg-gray-900 shadow-lg rounded modal-wrapper"
     @click.stop
   >
     <header class="w-full flex items-center justify-between">
@@ -107,10 +107,6 @@ export default {
 </template>
 
 <style scoped>
-.settings-wrapper {
-  width: calc(100% - 3rem);
-}
-
 .btn-group button {
   transition: all 100ms ease-in;
 }

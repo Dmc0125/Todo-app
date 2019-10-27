@@ -49,7 +49,7 @@ export default {
   <form class="w-full wrapper" @submit.prevent="submitTodo">
     <AppInput :value.sync="newTodo.text" label="Todo name" />
 
-    <CreateTodoLabels :todo="newTodo" @todo:togglelabel="toggleLabel" />
+    <CreateTodoLabels :todoLabels="newTodo.labels" @todo:togglelabel="toggleLabel" />
 
     <button
       type="submit"

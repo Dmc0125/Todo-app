@@ -8,6 +8,7 @@ const todosModule = {
   },
   getters: {
     getTodos: state => state.todos,
+    getTodo: state => id => state.todos.find(todo => todo.id === id),
   },
   mutations: {
     [todosTypes.CREATE_TODO](state, todo) {
@@ -32,6 +33,19 @@ const todosModule = {
 
       state.todos = deleted;
     },
+    [todosTypes.MODIFY_TODO_LABELS](state, { id, labelId }) {
+      const todoIdx = state.todos.findIndex(todo => todo.id === id);
+
+      if (state.todos[todoIdx].labels.includes(labelId)) {
+        state.todos.splice(todoIdx, 1, {
+          ...state.todos[todoIdx],
+          labels: state.todos[todoIdx].labels.filter(label => label !== labelId),
+        });
+        return;
+      }
+
+      state.todos[todoIdx].labels.push(labelId);
+    },
     [todosTypes.DELETE_NON_EXISTING_LABEL_IDS](state, filtered) {
       state.todos = state.todos.map(todo => ({
         ...todo,
@@ -48,6 +62,9 @@ const todosModule = {
     },
     deleteTodo({ commit }, todoId) {
       commit(todosTypes.DELETE_TODO, todoId);
+    },
+    modifyTodoLabels({ commit }, data) {
+      commit(todosTypes.MODIFY_TODO_LABELS, data);
     },
     deleteNonExistingLabelIds({ commit, state }, labels) {
       const unique = [

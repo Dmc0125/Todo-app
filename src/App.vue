@@ -41,6 +41,8 @@ body {
   transform: rotate(180deg);
 }
 
+/* ---- MODAL GLOBAL ---- */
+
 .modal-wrapper {
   width: calc(100% - 3rem);
 }

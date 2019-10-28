@@ -58,13 +58,4 @@ export default {
 .is-used {
   border-radius: 0 0.25rem 0.25rem 0;
 }
-
-p {
-  -ms-word-break: break-all;
-  word-break: break-all;
-  -webkit-hyphens: manual;
-  -moz-hyphens: manual;
-  -ms-hyphens: manual;
-  hyphens: manual;
-}
 </style>

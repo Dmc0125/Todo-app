@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <section class="w-full wrapper">
+  <section class="w-full max-w-md mx-auto wrapper">
     <header>
       <h1 class="h-secondary">All labels</h1>
     </header>

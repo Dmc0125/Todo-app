@@ -1,8 +1,14 @@
 <script>
+import Headermd from './Headermd.vue';
+import HeaderMobile from './HeaderMobile.vue';
+
 export default {
+  components: {
+    Headermd,
+    HeaderMobile,
+  },
   data() {
     return {
-      isNavShown: true,
       links: [
         {
           to: 'All todos',
@@ -39,74 +45,9 @@ export default {
 </script>
 
 <template>
-  <header class="w-full bg-gray-900 shadow-md" :class="[ isNavShown ? 'h-28' : 'h-16' ]">
-    <section class="w-full h-16 px-4 flex items-center justify-between">
-      <div class="w-fc h-16 flex items-center">
-        <h1 class="h-primary">Todo app</h1>
-      </div>
+  <header>
+    <Headermd :links="links" />
 
-      <button class="menu-btn" @click="isNavShown = !isNavShown">
-        <div
-          class="btn"
-          :class="{ 'active-btn': isNavShown }"
-        ></div>
-      </button>
-    </section>
-
-    <nav v-show="isNavShown" class="w-full h-12 flex items-center">
-      <router-link
-        v-for="{ to, href, isActive } in links"
-        class="w-2/5 flex-shrink-0 focus:outline-none focus:bg-gray-800 hover:bg-gray-800"
-        :key="href"
-        :to="href"
-      >
-        <div
-          class="h-12 flex-center link"
-          :class="{ 'active-link': isActive }"
-        >{{ to }}</div>
-      </router-link>
-    </nav>
+    <HeaderMobile :links="links" />
   </header>
 </template>
-
-<style scoped>
-header {
-  transition: all 200ms ease-in-out;
-}
-
-.active-btn {
-  transform: rotate(45deg);
-}
-
-.active-btn::before {
-  transform: rotate(-90deg) !important;
-}
-
-.active-btn::after {
-  transform: rotate(90deg) !important;
-  opacity: 0;
-}
-
-nav {
-  overflow-x: auto;
-  overflow: -moz-scrollbars-none;
-  scrollbar-width: none;
-
-  animation: 400ms ease-in-out 1 slideIn;
-}
-
-nav::-webkit-scrollbar {
-  display: none;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-</style>

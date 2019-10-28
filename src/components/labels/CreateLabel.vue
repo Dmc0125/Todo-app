@@ -1,6 +1,8 @@
 <script>
 import { mapActions } from 'vuex';
 
+import { limitStringLength } from '@/utils/helpers';
+
 import AppInput from '@/layouts/input/Input.vue';
 import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
 
@@ -16,7 +18,7 @@ export default {
   },
   methods: {
     submitLabel() {
-      this.createLabel(this.customLabel);
+      this.addLabel(limitStringLength(this.customLabel));
 
       this.customLabel = '';
     },

@@ -8,6 +8,7 @@ module.exports = {
       },
       width: {
         fc: 'fit-content',
+        36: '9rem',
       },
       minHeight: {
         6: '1.5rem',
@@ -22,6 +23,10 @@ module.exports = {
       fontFamily: {
         default: ['Raleway', 'sans-serif'],
       },
+    },
+    screens: {
+      sm: '600px',
+      md: '1000px',
     },
   },
   variants: {},

@@ -11,7 +11,7 @@ export default {
 
 <template>
   <section
-    class="modal w-full h-screen absolute top-0 left-0"
+    class="w-full h-screen absolute top-0 left-0 flex-center modal-color"
     v-if="showModal"
     @click="hideModal"
   >
@@ -20,7 +20,7 @@ export default {
 </template>
 
 <style scoped>
-.modal {
+.modal-color {
   background: rgba(0, 0, 0, 0.1);
 }
 </style>

@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-  <form class="w-full wrapper" @submit.prevent="submitTodo">
+  <form class="w-full max-w-md mx-auto wrapper" @submit.prevent="submitTodo">
     <AppInput :value.sync="newTodo.text" label="Todo name" />
 
     <CreateTodoLabels :todoLabels="newTodo.labels" @todo:togglelabel="toggleLabel" />

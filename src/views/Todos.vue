@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <section class="wrapper">
+  <section class="w-full max-w-md mx-auto wrapper">
     <section v-if="!todos.length">
       <h3
         class="text-center font-semibold text-lg p-primary-color"

@@ -1,6 +1,8 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
+import { limitStringLength } from '@/utils/helpers';
+
 import AppInput from '@/layouts/input/Input.vue';
 import AppPlusIcon from '@/layouts/icons/PlusIcon.vue';
 import Colors from './Colors.vue';
@@ -33,7 +35,11 @@ export default {
   },
   methods: {
     submitLabelHide() {
-      this.modifyLabel({ id: this.id, text: this.labelText, color: this.setColor });
+      this.modifyLabel({
+        id: this.id,
+        text: limitStringLength(this.labelText),
+        color: this.setColor,
+      });
       this.hideModal();
     },
     deleteLabelHide() {
@@ -50,7 +56,7 @@ export default {
 
 <template>
   <section
-    class="w-full p-6 absolute center-absolute bg-gray-900 shadow-lg rounded modal-wrapper"
+    class="w-full max-w-md p-6 bg-gray-900 shadow-lg rounded modal-wrapper"
     @click.stop
   >
     <header class="w-full flex items-center justify-between">

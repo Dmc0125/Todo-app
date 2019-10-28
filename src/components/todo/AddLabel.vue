@@ -26,7 +26,7 @@ export default {
 
 <template>
   <section
-    class="w-full p-6 absolute center-absolute bg-gray-900 shadow-lg rounded modal-wrapper"
+    class="w-full max-w-md p-6 bg-gray-900 shadow-lg rounded modal-wrapper"
     @click.stop
   >
     <header class="flex-center-between">

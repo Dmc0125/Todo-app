@@ -61,14 +61,3 @@ export default {
     </li>
   </ul>
 </template>
-
-<style scoped>
-p {
-  -ms-word-break: break-all;
-  word-break: break-all;
-  -webkit-hyphens: manual;
-  -moz-hyphens: manual;
-  -ms-hyphens: manual;
-  hyphens: manual;
-}
-</style>

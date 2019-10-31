@@ -24,7 +24,7 @@ export default {
 
       this.customLabel = '';
     },
-    ...mapActions(['addLabel', 'showModal']),
+    ...mapActions(['createLabel', 'showModal']),
   },
   computed: mapGetters({
     labels: 'getLabels',

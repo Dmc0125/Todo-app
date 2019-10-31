@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     submitLabel() {
-      this.addLabel(limitStringLength(this.customLabel));
+      this.createLabel(limitStringLength(this.customLabel));
 
       this.customLabel = '';
     },

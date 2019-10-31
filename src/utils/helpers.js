@@ -6,4 +6,4 @@
  * @param {Number} maxLength - Maximum length of string - default is 20
  * @returns {String} Shortened string
  */
-export const limitStringLength = (str, maxLength = 20) => (str.length > maxLength ? str.slice(0, 20) + '...' : str);
+export const limitStringLength = (str, maxLength = 20) => (str.length > maxLength ? str.slice(0, maxLength).trim() + '...' : str);

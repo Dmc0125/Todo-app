@@ -1,6 +1,7 @@
 import uuidv4 from 'uuid/v4';
 
 import { todosTypes } from '../types';
+import { addItem, setItem } from '../../utils/localstorage';
 
 const todosModule = {
   state: {
@@ -11,6 +12,9 @@ const todosModule = {
     getTodo: state => id => state.todos.find(todo => todo.id === id),
   },
   mutations: {
+    [todosTypes.SET_TODOS](state, todos) {
+      state.todos = todos;
+    },
     [todosTypes.CREATE_TODO](state, todo) {
       const newTodo = {
         ...todo,
@@ -19,6 +23,7 @@ const todosModule = {
       };
 
       state.todos.push(newTodo);
+      addItem(process.env.VUE_APP_LS_TODOS_KEY, newTodo);
     },
     [todosTypes.TOGGLE_TODO_DONE](state, todoId) {
       const changedIdx = state.todos.findIndex(todo => todo.id === todoId);
@@ -27,11 +32,13 @@ const todosModule = {
         ...state.todos[changedIdx],
         isDone: !state.todos[changedIdx].isDone,
       });
+      setItem(process.env.VUE_APP_LS_TODOS_KEY, state.todos);
     },
     [todosTypes.DELETE_TODO](state, todoId) {
       const deleted = state.todos.filter(todo => todo.id !== todoId);
 
       state.todos = deleted;
+      setItem(process.env.VUE_APP_LS_TODOS_KEY, deleted);
     },
     [todosTypes.MODIFY_TODO_LABELS](state, { id, labelId }) {
       const todoIdx = state.todos.findIndex(todo => todo.id === id);
@@ -45,15 +52,22 @@ const todosModule = {
       }
 
       state.todos[todoIdx].labels.push(labelId);
+      setItem(process.env.VUE_APP_LS_TODOS_KEY, state.todos);
     },
     [todosTypes.DELETE_NON_EXISTING_LABEL_IDS](state, filtered) {
       state.todos = state.todos.map(todo => ({
         ...todo,
         labels: todo.labels.filter(label => filtered.includes(label)),
       }));
+      setItem(process.env.VUE_APP_LS_TODOS_KEY, state.todos);
     },
   },
   actions: {
+    setTodos({ commit }, todos) {
+      if (todos) {
+        commit(todosTypes.SET_TODOS, todos);
+      }
+    },
     createTodo({ commit }, todo) {
       commit(todosTypes.CREATE_TODO, todo);
     },

@@ -61,6 +61,12 @@ input:focus {
   @apply text-base;
 }
 
+.p-secondary {
+  @apply text-gray-400;
+  @apply font-normal;
+  @apply text-sm;
+}
+
 /* ---- NAVIGATION LINK ---- */
 
 .link {

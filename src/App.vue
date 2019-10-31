@@ -1,9 +1,25 @@
 <script>
+import { mapActions } from 'vuex';
+
+import { getItems } from './utils/localstorage';
+
 import AppHeader from '@/components/header/Header.vue';
 
 export default {
   components: {
     AppHeader,
+  },
+  methods: {
+    ...mapActions(['setTodos', 'setLabels']),
+  },
+  created() {
+    const [todos, labels] = getItems(
+      process.env.VUE_APP_LS_TODOS_KEY,
+      process.env.VUE_APP_LS_LABELS_KEY,
+    );
+
+    this.setTodos(todos);
+    this.setLabels(labels);
   },
 };
 </script>

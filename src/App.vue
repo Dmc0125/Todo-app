@@ -4,10 +4,12 @@ import { mapActions } from 'vuex';
 import { getItems } from './utils/localstorage';
 
 import AppHeader from '@/components/header/Header.vue';
+import AppNotification from '@/components/notification/Notification.vue';
 
 export default {
   components: {
     AppHeader,
+    AppNotification,
   },
   methods: {
     ...mapActions(['setTodos', 'setLabels']),
@@ -29,6 +31,8 @@ export default {
     <AppHeader />
 
     <router-view/>
+
+    <AppNotification />
   </main>
 </template>
 

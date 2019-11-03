@@ -43,10 +43,20 @@ export default {
       this.hideModal();
     },
     deleteLabelHide() {
-      this.deleteLabel(this.id);
+      this.showNotification({
+        head: 'Label deleted',
+        text: `Label ${
+          this.labelText.length
+            ? '"' + this.labelText + '"'
+            : ''
+        } was successfully deleted.`,
+        isSuccess: true,
+      });
+
       this.hideModal();
+      this.deleteLabel(this.id);
     },
-    ...mapActions(['modifyLabel', 'deleteLabel', 'hideModal']),
+    ...mapActions(['modifyLabel', 'deleteLabel', 'hideModal', 'showNotification']),
   },
   computed: mapGetters({
     colors: 'getColors',

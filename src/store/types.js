@@ -18,3 +18,8 @@ export const modalTypes = {
   SHOW_MODAL: 'SHOW_MODAL',
   HIDE_MODAL: 'HIDE_MODAL',
 };
+
+export const notificationTypes = {
+  SHOW_NOTIFICATION: 'SHOW_NOTIFICATION',
+  HIDE_NOTIFICATION: 'HIDE_NOTIFICATION',
+};

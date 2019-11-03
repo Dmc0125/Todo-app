@@ -20,9 +20,19 @@ export default {
     submitLabel() {
       this.createLabel(limitStringLength(this.customLabel));
 
+      this.showNotification({
+        head: 'Label created',
+        text: `New label ${
+          this.customLabel.length
+            ? '"' + this.customLabel + '"'
+            : ''
+        } was succesfully created`,
+        isSuccess: true,
+      });
+
       this.customLabel = '';
     },
-    ...mapActions(['createLabel']),
+    ...mapActions(['createLabel', 'showNotification']),
   },
 };
 </script>

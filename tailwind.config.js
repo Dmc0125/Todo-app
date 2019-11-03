@@ -9,6 +9,7 @@ module.exports = {
       width: {
         fc: 'fit-content',
         36: '9rem',
+        80: '20rem',
       },
       minHeight: {
         6: '1.5rem',
@@ -16,6 +17,10 @@ module.exports = {
         16: '4rem',
         17: '4.25rem',
         32: '8rem',
+      },
+      inset: {
+        4: '1rem',
+        20: '5rem',
       },
       backgroundColor: () => ({
         current: 'currentColor',

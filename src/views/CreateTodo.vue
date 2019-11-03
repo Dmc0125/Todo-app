@@ -28,7 +28,22 @@ export default {
       this.newTodo.labels.push(labelId);
     },
     submitTodo() {
+      if (!this.newTodo.text.trim().length) {
+        this.showNotification({
+          head: 'Please fill out all fields',
+          text: 'You need to set todo text/name',
+          isSuccess: false,
+        });
+        return;
+      }
+
       this.createTodo(this.newTodo);
+
+      this.showNotification({
+        head: 'Todo created',
+        text: `Todo "${this.newTodo.text}" was succesfully created...`,
+        isSuccess: true,
+      });
 
       this.newTodo = {
         text: '',
@@ -37,7 +52,7 @@ export default {
 
       this.$router.push({ path: '/' });
     },
-    ...mapActions(['createTodo']),
+    ...mapActions(['createTodo', 'showNotification']),
   },
   computed: mapGetters({
     labels: 'getLabels',
@@ -46,8 +61,8 @@ export default {
 </script>
 
 <template>
-  <form class="w-full max-w-md mx-auto wrapper" @submit.prevent="submitTodo">
-    <AppInput :value.sync="newTodo.text" label="Todo name" />
+  <form class="w-full max-w-md mx-auto wrapper" @submit.prevent="submitTodo" data-form-test>
+    <AppInput :value.sync="newTodo.text" label="Todo name/text" />
 
     <CreateTodoLabels :todoLabels="newTodo.labels" @todo:togglelabel="toggleLabel" />
 

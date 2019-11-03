@@ -16,7 +16,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     /^(?!cursor-move).+-move$/,
     /^router-link(|-exact)-active$/,
   ],
-  defaultExtractor: (content) => {
+  defaultExtractor: content => {
     const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '');
     return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || [];
   },

@@ -39,10 +39,19 @@ export default {
     };
   },
   methods: {
+    deleteTodoShowNotification() {
+      this.deleteTodo(this.id);
+
+      this.showNotification({
+        head: 'Todo deleted',
+        text: `Todo "${this.text}" was deleted successfully`,
+        isSuccess: true,
+      });
+    },
     toggleTodoExpand() {
       this.isExpanded = !this.isExpanded;
     },
-    ...mapActions(['toggleTodoDone', 'deleteTodo']),
+    ...mapActions(['toggleTodoDone', 'deleteTodo', 'showNotification']),
   },
 };
 </script>
@@ -70,7 +79,7 @@ export default {
 
         <button
           class="w-8 h-full flex-shrink-0 labels-btn labels-btn-outer"
-          @click="deleteTodo(id)"
+          @click="deleteTodoShowNotification"
         >
           <AppPlusIcon rotate />
         </button>

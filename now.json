@@ -1,0 +1,10 @@
+{
+  "name": "todo-app",
+  "version": 2,
+  "build": {
+    "env": {
+      "VUE_APP_LS_TODOS_KEY": "TODOS",
+      "VUE_APP_LS_LABELS_KEY": "LABELS"
+    }
+  }
+}

@@ -23,8 +23,8 @@ export default {
       <section
         v-for="({ text, head, id, isSuccess }, i) in notifications"
         :class="`
-          w-full flex items-center ${ i === notifications.length - 1 ? '' : 'mb-4' } pr-2 py-2
-          shadow-lg rounded bg-gray-900 border border-gray-800
+          w-full flex items-center ${ i === notifications.length - 1 ? '' : 'mb-4' }
+          pr-2 py-2 shadow-lg rounded bg-gray-900 border border-gray-800 notification
         `"
         :key="id"
       >
@@ -51,9 +51,12 @@ export default {
 </template>
 
 <style scoped>
-.slideIn-enter-active,
+.notification {
+  transition: all 300ms ease-out;
+}
+
 .slideIn-leave-active {
-  transition: transform 300ms ease-out, opacity 300ms ease-out;
+  position: absolute;
 }
 
 .slideIn-enter,

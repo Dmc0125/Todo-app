@@ -11,6 +11,23 @@ export default {
       isNavShown: true,
     };
   },
+  watch: {
+    links: {
+      deep: true,
+      handler(links) {
+        const { to } = links.find(link => link.isActive);
+
+        const active = this.$refs.links.find(link => link.innerText === to);
+        const { left } = active.getBoundingClientRect();
+
+        this.$refs.navMobile.scroll({
+          behavior: 'smooth',
+          top: 0,
+          left: left + active.clientWidth / 2,
+        });
+      },
+    },
+  },
 };
 </script>
 
@@ -26,14 +43,17 @@ export default {
       </button>
     </section>
 
-    <nav v-show="isNavShown" class="w-full flex items-center">
+    <nav v-show="isNavShown" class="w-full flex items-center" ref="navMobile">
       <router-link
         v-for="{ to, href, isActive } in links"
         class="w-2/5 sm:w-1/3 flex-shrink-0 focus:outline-none focus:bg-gray-800 hover:bg-gray-800"
         :key="href"
         :to="href"
       >
-        <div :class="['h-12 flex-center link', { 'active-link': isActive }]">{{ to }}</div>
+        <div
+          :class="['h-12 flex-center link', { 'active-link': isActive }]"
+          ref="links"
+        >{{ to }}</div>
       </router-link>
     </nav>
   </section>

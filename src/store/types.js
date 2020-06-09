@@ -14,6 +14,12 @@ export const todosTypes = {
   DELETE_NON_EXISTING_LABEL_IDS: 'DELETE_NON_EXISTING_LABEL_IDS',
 };
 
+export const groupsTypes = {
+  SET_TODO_GROUPS: 'SET_TODO_GROUPS',
+  CREATE_TODO_GROUP: 'CREATE_TODO_GROUP',
+  SELECT_TODO_GROUP: 'SELECT_TODO_GROUP',
+};
+
 export const modalTypes = {
   SHOW_MODAL: 'SHOW_MODAL',
   HIDE_MODAL: 'HIDE_MODAL',

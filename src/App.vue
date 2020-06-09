@@ -11,17 +11,17 @@ export default {
     AppHeader,
     AppNotifications,
   },
-  methods: {
-    ...mapActions(['setTodos', 'setLabels']),
-  },
+  methods: mapActions(['setTodos', 'setLabels', 'setTodoGroups']),
   created() {
-    const [todos, labels] = getItems(
+    const [todos, labels, groups] = getItems(
       process.env.VUE_APP_LS_TODOS_KEY,
       process.env.VUE_APP_LS_LABELS_KEY,
+      process.env.VUE_APP_LS_GROUPS_KEY,
     );
 
     this.setTodos(todos);
     this.setLabels(labels);
+    this.setTodoGroups(groups);
   },
 };
 </script>

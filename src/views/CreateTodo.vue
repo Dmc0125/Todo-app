@@ -3,17 +3,20 @@ import { mapGetters, mapActions } from 'vuex';
 
 import AppInput from '@/layouts/input/Input.vue';
 import CreateTodoLabels from '@/components/create_todo/CreateTodoLabels.vue';
+import CreateTodoGroups from '@/components/create_todo/CreateTodoGroups.vue';
 
 export default {
   components: {
     AppInput,
     CreateTodoLabels,
+    CreateTodoGroups,
   },
   data() {
     return {
       newTodo: {
         text: '',
         labels: [],
+        groups: [],
       },
     };
   },
@@ -31,7 +34,7 @@ export default {
       if (!this.newTodo.text.trim().length) {
         this.showNotification({
           head: 'Please fill out all fields',
-          text: 'You need to set todo text/name',
+          text: 'You need to set todo text/name and choose group',
           isSuccess: false,
         });
         return;
@@ -65,6 +68,8 @@ export default {
     <AppInput :value.sync="newTodo.text" label="Todo name/text" />
 
     <CreateTodoLabels :todoLabels="newTodo.labels" @todo:togglelabel="toggleLabel" />
+
+    <CreateTodoGroups />
 
     <button
       type="submit"

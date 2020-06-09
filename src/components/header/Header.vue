@@ -25,6 +25,11 @@ export default {
           href: '/create-labels',
           isActive: false,
         },
+        {
+          to: 'Settings',
+          href: '/settings',
+          isActive: false,
+        },
       ],
     };
   },

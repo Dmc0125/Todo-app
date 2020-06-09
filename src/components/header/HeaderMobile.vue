@@ -43,19 +43,23 @@ export default {
       </button>
     </section>
 
-    <nav v-show="isNavShown" class="w-full flex items-center" ref="navMobile">
-      <router-link
-        v-for="{ to, href, isActive } in links"
-        class="w-2/5 sm:w-1/3 flex-shrink-0 focus:outline-none focus:bg-gray-800 hover:bg-gray-800"
-        :key="href"
-        :to="href"
-      >
-        <div
-          :class="['h-12 flex-center link', { 'active-link': isActive }]"
-          ref="links"
-        >{{ to }}</div>
-      </router-link>
-    </nav>
+    <transition name="slideIn">
+      <nav v-show="isNavShown" class="w-full flex items-center" ref="navMobile">
+        <router-link
+          v-for="{ to, href, isActive } in links"
+          class="
+            w-2/5 sm:w-1/3 flex-shrink-0 focus:outline-none focus:bg-gray-800 hover:bg-gray-800
+          "
+          :key="href"
+          :to="href"
+        >
+          <div
+            :class="['h-12 flex-center link', { 'active-link': isActive }]"
+            ref="links"
+          >{{ to }}</div>
+        </router-link>
+      </nav>
+    </transition>
   </section>
 </template>
 
@@ -81,22 +85,23 @@ nav {
   overflow-x: auto;
   overflow: -moz-scrollbars-none;
   scrollbar-width: none;
-
-  animation: 400ms ease-in-out 1 slideIn;
 }
 
 nav::-webkit-scrollbar {
   display: none;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.slideIn-enter-active {
+  transition: all 400ms ease-out;
+}
+
+.slideIn-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slideIn-enter-to {
+  transform: translateX(0);
+  opacity: 1;
 }
 </style>

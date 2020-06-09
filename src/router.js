@@ -23,6 +23,11 @@ export default new Router({
       component: () => import('./views/CreateLabels.vue'),
     },
     {
+      path: '/settings',
+      name: 'settings',
+      component: () => import('./views/Settings.vue'),
+    },
+    {
       path: '*',
       redirect: '/',
     },
